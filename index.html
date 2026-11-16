@@ -136,6 +136,27 @@
   figure img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
   figcaption { font-size: 13px; color: var(--muted); margin-top: 6px; }
 
+  /* Screenshot-Galerie */
+  .shots {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .shots a {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: #000;
+    line-height: 0;
+  }
+  .shots a:first-child { grid-row: 1 / span 2; }
+  .shots img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+  .shots a:hover img { transform: scale(1.03); }
+  .shots-caption { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+
   /* Kenntnisse und Studium */
   .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 32px; }
   .grid h4 { font-family: "Lato", sans-serif; font-weight: 700; font-size: 15px; margin: 0 0 4px; }
@@ -152,6 +173,9 @@
     .project { padding: 22px 18px 20px; }
     .grid { grid-template-columns: 1fr; }
     .edu { grid-template-columns: 1fr; gap: 2px; }
+    .shots { grid-template-columns: 1fr; }
+    .shots a:first-child { grid-row: auto; }
+    .shots img { height: auto; }
   }
   @media print {
     body { background: #fff; color: #000; font-size: 11pt; }
@@ -227,6 +251,27 @@
       <p>Wir haben uns UiPath ohne Vorkenntnisse in RPA erarbeitet und die wichtigsten Aktivitäten dokumentiert. Als Anwendungsfall haben wir einen Ablauf automatisiert, der Daten aus einer Excel-Tabelle in ein Webformular überträgt. Anschließend haben wir RPA mit klassischer Programmierung verglichen.</p>
       <ul class="tags">
         <li>UiPath Studio</li><li>RPA</li><li>Excel</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <p class="meta">Schulprojekt · Dathe-Gymnasium · 11. Klasse · Team aus 7 Personen</p>
+      <h3>DatheDungeon: Dungeon Crawler in Java</h3>
+      <p>Ein 2D-Spiel, in dem man sich durch die eigene Schule kämpft: Flure und Klassenräume sind dem Dathe-Gymnasium nachgebaut. Die Schule ist voller Monster, und Raum für Raum muss man sie besiegen, um am Ende den Abschluss zu bekommen. Lehrkräfte geben unterwegs Hinweise.</p>
+      <p class="label">Mein Beitrag</p>
+      <ul>
+        <li>Spiellogik programmiert, also wie sich Spielfigur, Monster und Räume verhalten</li>
+        <li>Gameplay entworfen: wie man sich durch die Räume kämpft und was man dafür braucht</li>
+        <li>Character Design der Spielfiguren</li>
+      </ul>
+      <div class="shots">
+        <a href="img/dathedungeon-kampf.webp"><img src="img/dathedungeon-kampf.webp" width="1376" height="640" loading="lazy" alt="Kampf gegen Monster im Geografieraum"></a>
+        <a href="img/dathedungeon-dialog.webp"><img src="img/dathedungeon-dialog.webp" width="1376" height="640" loading="lazy" alt="Gespräch mit einem Lehrer auf dem Schulflur"></a>
+        <a href="img/dathedungeon-start.webp"><img src="img/dathedungeon-start.webp" width="1376" height="640" loading="lazy" alt="Startbildschirm von DatheDungeon"></a>
+      </div>
+      <p class="shots-caption">Screenshots aus dem Spiel: Kampf im Geografieraum, Gespräch mit einem Lehrer, Startbildschirm. Zum Vergrößern anklicken.</p>
+      <ul class="tags">
+        <li>Java</li><li>Java Swing</li><li>2D-Grafik</li><li>Pixel Art</li>
       </ul>
     </article>
   </section>
