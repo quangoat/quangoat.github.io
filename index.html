@@ -213,6 +213,8 @@
   .gallery a { display: block; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: #000; line-height: 0; }
   .gallery a:first-child, .gallery a.wide { grid-column: 1 / -1; }
   .gallery a.light { background: #fff; }
+  .gallery a.tall { position: relative; grid-row: span 2; background: #EEF1E8; }
+  .gallery a.tall img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
   .gallery img { width: 100%; height: auto; display: block; }
   .gallery-note { font-size: 13px; color: var(--muted); margin-top: 8px !important; }
 
@@ -249,7 +251,7 @@
       <div class="cover collage light" aria-hidden="true">
         <div><img src="img/ptr-wertschoepfung.webp" width="1090" height="456" alt=""></div>
         <div><img src="img/ptr-anforderungen.webp" width="1200" height="1090" alt=""></div>
-        <div><img src="img/ptr-materialauswahl.webp" width="1200" height="1090" alt=""></div>
+        <div><img src="img/ptr-uipath.webp" width="622" height="1151" alt="" style="object-position: center 38%"></div>
       </div>
       <div class="body">
         <p class="meta">Modellierung von Anwendungssystemen · SoSe 2026 · Viererteam</p>
@@ -317,17 +319,18 @@
     <div class="gallery">
       <a class="light" href="img/ptr-auftragsprozess.webp" target="_blank" rel="noopener"><img src="img/ptr-auftragsprozess.webp" width="2400" height="748" loading="lazy" alt="BPMN-Diagramm des Auftragsprozesses von der Terminbuchung bis zur Auftragsbestätigung"></a>
       <a class="light" href="img/ptr-anforderungen.webp" target="_blank" rel="noopener"><img src="img/ptr-anforderungen.webp" width="1200" height="1090" loading="lazy" alt="Camunda-Formular, in dem Nachhaltigkeits- und Qualitätsanforderungen per Schieberegler gewichtet werden"></a>
+      <a class="tall" href="img/ptr-uipath.webp" target="_blank" rel="noopener"><img src="img/ptr-uipath.webp" width="622" height="1151" loading="lazy" alt="UiPath-Workflow: Der Bot liest Vorgangsnummern aus der Camunda-Tasklist, trägt Abhol- und Zustelldatum ein und klickt auf Complete"></a>
       <a class="light" href="img/ptr-materialauswahl.webp" target="_blank" rel="noopener"><img src="img/ptr-materialauswahl.webp" width="1200" height="1090" loading="lazy" alt="Die drei bestbewerteten Materialien mit Lieferant und Score"></a>
       <a class="light wide" href="img/ptr-wertschoepfung.webp" target="_blank" rel="noopener"><img src="img/ptr-wertschoepfung.webp" width="1090" height="456" loading="lazy" alt="Ausschnitt aus dem Wertschöpfungsprozess: Prototyp entwickeln, testen, Kosten prüfen und Feedback einholen"></a>
     </div>
-    <p class="gallery-note">Auftragsprozess in BPMN, Anforderungen im Camunda-Formular, Materialvergleich mit Score, Prototyp-Schleife im Wertschöpfungsprozess. Zum Vergrößern anklicken.</p>
+    <p class="gallery-note">Auftragsprozess in BPMN, Anforderungen im Camunda-Formular, UiPath-Bot, der eine Aufgabe in der Camunda-Tasklist selbst erledigt, Materialvergleich mit Score, Prototyp-Schleife im Wertschöpfungsprozess. Zum Vergrößern anklicken.</p>
 
     <h4>Worum es geht</h4>
     <ul class="points">
       <li><strong>Auftragsprozess:</strong> Ein Handelskunde bestellt Verpackungen für eine Kampagne, mit festem Budget und FSC-zertifizierten Materialien.</li>
       <li><strong>Wertschöpfungsprozess:</strong> Vom internen Auftrag über Materialauswahl, Prototyp und Kostenrechnung bis zur Produktionsplanung.</li>
       <li><strong>Reklamationsprozess:</strong> Reklamationen werden mit einer Ticketnummer erfasst und bearbeitet. Benachrichtigungen gehen automatisch per E-Mail raus.</li>
-      <li><strong>Robotic Process Automation:</strong> Wiederkehrende Eingaben wie die Transportbuchung soll ein UiPath-Bot statt eines Menschen erledigen.</li>
+      <li><strong>Robotic Process Automation:</strong> Die Transportbuchung im Reklamationsprozess erledigt ein UiPath-Bot statt eines Menschen.</li>
     </ul>
 
     <h4>Mein Beitrag: Camunda</h4>
@@ -340,9 +343,9 @@
 
     <h4>Mein Beitrag: UiPath</h4>
     <ul class="points">
+      <li>Den Bot für den Schritt „Transport / Kurier buchen“ im Reklamationsprozess umgesetzt: Er berechnet Abhol- und Zustelldatum, öffnet die Camunda-Tasklist im Browser, liest die Vorgangsnummer aus, füllt das Formular aus, schließt die Aufgabe ab und legt einen Lieferschein als Textdatei an</li>
       <li>Zu zweit ohne Vorerfahrung in UiPath Studio eingearbeitet und die wichtigsten Aktivitäten dokumentiert</li>
-      <li>Einen Bot gebaut, der Daten aus einer Excel-Tabelle liest und automatisch in ein Webformular einträgt</li>
-      <li>Die Transportbuchung im Auftragsprozess so aufgeteilt, dass erst ein Mensch die Daten eingibt und danach ein Service Task den Bot startet</li>
+      <li>Außerdem einen Bot gebaut, der Daten aus einer Excel-Tabelle liest und automatisch in ein Webformular einträgt</li>
       <li>RPA mit klassischer Programmierung verglichen: Wann lohnt sich ein Bot, und wann ist eigener Code die bessere Wahl?</li>
     </ul>
 
