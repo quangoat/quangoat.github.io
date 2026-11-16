@@ -201,6 +201,12 @@
   .detail ul.points { margin: 0; padding-left: 20px; }
   .detail ul.points li { margin: 5px 0; }
   .detail .tags { margin-top: 26px; }
+  .detail .play {
+    display: inline-flex; align-items: center; gap: 8px; margin: 14px 0 2px;
+    font-family: "Lato", sans-serif; font-weight: 700; font-size: 15px; letter-spacing: .2px;
+    color: #fff; background: #2B5D8A; border-radius: 999px; padding: 9px 20px;
+  }
+  .detail .play:hover, .detail .play:focus-visible { background: #336d9f; text-decoration: none; }
   .detail .links { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 16px; font-weight: 600; }
   .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
   .gallery a { display: block; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: #000; line-height: 0; }
@@ -326,7 +332,7 @@
       <div class="body">
         <p class="meta">Schulprojekt · Dathe-Gymnasium · 11. Klasse · 7 Personen</p>
         <h3>DatheDungeon: Dungeon Crawler in Java</h3>
-        <p class="teaser">Ein 2D-Spiel, in dem man sich Raum für Raum durch die nachgebaute Schule kämpft.</p>
+        <p class="teaser">Ein 2D-Spiel, in dem man sich Raum für Raum durch die nachgebaute Schule kämpft. Direkt im Browser spielbar.</p>
         <div class="foot">
           <ul class="tags"><li>Java</li><li>Java Swing</li><li>Pixel Art</li></ul>
           <span class="more">Details ansehen <span aria-hidden="true">→</span></span>
@@ -476,6 +482,7 @@
     <p class="meta">Schulprojekt · Dathe-Gymnasium · 11. Klasse · Team aus 7 Personen</p>
     <h2 id="dathe-title">DatheDungeon: Dungeon Crawler in Java</h2>
     <p class="lead">Ein 2D-Dungeon-Crawler, dessen Schauplatz unsere eigene Schule ist. Flure und Klassenräume sind dem Dathe-Gymnasium nachempfunden.</p>
+    <a class="play" href="dathedungeon/">Im Browser spielen <span aria-hidden="true">→</span></a>
 
     <div class="gallery">
       <a href="img/dathedungeon-kampf.webp" target="_blank" rel="noopener"><img src="img/dathedungeon-kampf.webp" width="1376" height="640" loading="lazy" alt="Kampf gegen Monster im Geografieraum"></a>
@@ -507,6 +514,10 @@
     <p>Java mit Swing, eigener Game Loop mit 60 Bildern pro Sekunde, eine Kachelkarte mit 76 × 61 Feldern, Kollisionserkennung, Sprite-Animationen und Spielzustände wie Titelbildschirm, Dialog, Pause und Game Over.</p>
 
     <ul class="tags"><li>Java</li><li>Java Swing</li><li>2D-Grafik</li><li>Pixel Art</li><li>Teamarbeit</li></ul>
+    <div class="links">
+      <a href="dathedungeon/">Im Browser spielen</a>
+      <a href="dathedungeon/DatheDungeon.jar" download>Download als .jar (Java 8 oder neuer)</a>
+    </div>
   </div>
 </dialog>
 

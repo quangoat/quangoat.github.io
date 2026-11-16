@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DatheDungeon spielen · Quang Anh Tran</title>
+<meta name="description" content="DatheDungeon, ein 2D-Dungeon-Crawler in Java aus einem Schulprojekt, direkt im Browser spielbar.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B5D8A'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EQT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --surface: #FFFFFF;
+    --text: #1C1C1C;
+    --muted: #6A6A6A;
+    --line: #E4E4E0;
+    --accent: #2B5D8A;
+    --tag-bg: #F1F1EE;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141516;
+      --surface: #1C1E20;
+      --text: #ECECEA;
+      --muted: #A3A3A0;
+      --line: #2E3134;
+      --accent: #7FB0DA;
+      --tag-bg: #26292C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141516;
+    --surface: #1C1E20;
+    --text: #ECECEA;
+    --muted: #A3A3A0;
+    --line: #2E3134;
+    --accent: #7FB0DA;
+    --tag-bg: #26292C;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+  .wrap { max-width: 1520px; margin: 0 auto; padding: 0 20px; }
+
+  .bar {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px;
+    padding: 22px 0 16px;
+  }
+  .bar h1 {
+    font-family: "Lato", sans-serif; font-weight: 700;
+    font-size: 24px; margin: 0; letter-spacing: .2px;
+  }
+  .bar .back { font-weight: 600; }
+  .bar .restart { margin-left: auto; font-weight: 600; background: none; border: 0; padding: 0; font: inherit; color: var(--accent); cursor: pointer; }
+  .bar .restart:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Spielfläche: 1472 x 960 Pixel, wird passend skaliert */
+  .frame {
+    position: relative; margin: 0 auto;
+    background: #000; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+  }
+  #stage {
+    position: absolute; left: 0; top: 0;
+    width: 1472px; height: 960px;
+    transform-origin: 0 0;
+  }
+  .overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 14px; padding: 24px; text-align: center; color: #F2F2F0;
+    background: #000 url("../img/dathedungeon-start.webp") center / cover no-repeat;
+  }
+  .overlay::before { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .8); }
+  .overlay > * { position: relative; }
+  .overlay[hidden] { display: none; }
+  .start {
+    font-family: "Lato", sans-serif; font-weight: 700; font-size: 18px; letter-spacing: .3px;
+    color: #fff; background: #2B5D8A; border: 0; border-radius: 999px;
+    padding: 13px 30px; cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
+  }
+  .start:hover { background: #336d9f; }
+  .start:focus-visible { outline: 3px solid #7FB0DA; outline-offset: 3px; }
+  .start:disabled { opacity: .7; cursor: default; }
+  .overlay p { margin: 0; max-width: 460px; font-size: 14.5px; color: #DADAD6; }
+  .overlay .status { min-height: 1.6em; font-weight: 600; color: #fff; }
+  .overlay .status a { color: #A9CBEA; }
+
+  .info {
+    display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: center;
+    padding: 16px 0 6px; font-size: 14.5px;
+  }
+  kbd {
+    display: inline-block; min-width: 26px; padding: 1px 7px; margin-right: 3px;
+    font-family: "Lato", sans-serif; font-weight: 700; font-size: 13px; text-align: center;
+    background: var(--tag-bg); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px;
+  }
+  .note { color: var(--muted); font-size: 13.5px; padding: 4px 0 40px; margin: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <a class="back" href="../#dathedungeon"><span aria-hidden="true">←</span> Zurück zum Portfolio</a>
+    <h1>DatheDungeon</h1>
+    <button class="restart" type="button" id="restart" hidden>Neu starten</button>
+  </div>
+
+  <div class="frame" id="frame">
+    <div id="stage"></div>
+    <div class="overlay" id="overlay">
+      <button class="start" type="button" id="start">Spiel starten</button>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <p id="hint">Das Spiel läuft als Java-Programm direkt im Browser. Der erste Start kann etwas dauern. Danach einmal ins Spielfeld klicken, damit die Tastatur reagiert.</p>
+    </div>
+  </div>
+
+  <div class="info">
+    <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> bewegen</span>
+    <span><kbd>Enter</kbd> angreifen, reden, bestätigen</span>
+  </div>
+  <p class="note">
+    Schulprojekt aus der 11. Klasse, entwickelt zu siebt in Java (Swing).
+    Klappt es im Browser nicht? <a href="DatheDungeon.jar" download>Spiel als .jar herunterladen</a> (Java 8 oder neuer nötig).
+    Im Browser läuft Java mit <a href="https://cheerpj.com" target="_blank" rel="noopener">CheerpJ</a>.
+  </p>
+</div>
+
+<script>
+(function () {
+  var W = 1472, H = 960;
+  var frame = document.getElementById('frame');
+  var stage = document.getElementById('stage');
+  var overlay = document.getElementById('overlay');
+  var startBtn = document.getElementById('start');
+  var statusEl = document.getElementById('status');
+  var restart = document.getElementById('restart');
+
+  function fit() {
+    var wrap = frame.parentElement, cs = getComputedStyle(wrap);
+    var availW = wrap.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    var top = frame.getBoundingClientRect().top + window.scrollY;
+    var availH = Math.max(window.innerHeight - Math.min(top, 140) - 70, 300);
+    var s = Math.min(availW / W, availH / H, 1);
+    frame.style.width = Math.floor(W * s) + 'px';
+    frame.style.height = Math.floor(H * s) + 'px';
+    stage.style.transform = 'scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) {
+    document.getElementById('hint').textContent = 'Zum Spielen brauchst du eine Tastatur, am besten am Laptop oder PC öffnen.';
+  }
+
+  function fail() {
+    statusEl.innerHTML = 'Die Browser-Version konnte nicht geladen werden. <a href="DatheDungeon.jar" download>Spiel als .jar herunterladen</a>';
+    startBtn.hidden = true;
+    document.getElementById('hint').hidden = true;
+  }
+
+  function loadLoader() {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = 'https://cjrtnc.leaningtech.com/5.0/loader.js';
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  startBtn.addEventListener('click', function () {
+    startBtn.disabled = true;
+    statusEl.textContent = 'Java wird geladen …';
+    loadLoader()
+      .then(function () { return cheerpjInit(); })
+      .then(function () {
+        cheerpjCreateDisplay(W, H, stage);
+        overlay.hidden = true;
+        restart.hidden = false;
+        stage.focus && stage.focus();
+        return cheerpjRunJar('/app/dathedungeon/DatheDungeon.jar', '--web');
+      })
+      .catch(function (e) {
+        console.error(e);
+        overlay.hidden = false;
+        fail();
+      });
+  });
+
+  restart.addEventListener('click', function () { location.reload(); });
+})();
+</script>
+</body>
+</html>
