@@ -282,7 +282,25 @@
       </div>
     </a>
 
-    <!-- Kachel 3: DatheDungeon -->
+    <!-- Kachel 3: Travel-Agent -->
+    <a class="card" href="#travel-agent" aria-label="Details: KI-gestützter Travel-Agent">
+      <div class="cover collage light" aria-hidden="true">
+        <div><img class="pos-left" src="img/travel-mockups.webp" width="1821" height="1002" alt=""></div>
+        <div><img src="img/travel-psp.webp" width="1200" height="1000" alt=""></div>
+        <div><img src="img/travel-zeitplan.webp" width="2000" height="1153" alt="" style="object-position: 30% top"></div>
+      </div>
+      <div class="body">
+        <p class="meta">Modul Grundlagen Projektmanagement · WiSe 2025/26 · 7 Personen</p>
+        <h3>KI-gestützter Travel-Agent: Projekt für die Bundesverwaltung</h3>
+        <p class="teaser">Vom Projektauftrag über Zeitplan, Kostenschätzung und Anbieterbewertung bis zum klickbaren Prototyp für Dienstreisen in einer (fiktiven) Behörde.</p>
+        <div class="foot">
+          <ul class="tags"><li>Projektmanagement</li><li>Gantt</li><li>Prototyp</li></ul>
+          <span class="more">Details ansehen <span aria-hidden="true">→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Kachel 4: DatheDungeon -->
     <a class="card" href="#dathedungeon" aria-label="Details: DatheDungeon">
       <div class="cover collage" aria-hidden="true">
         <div><img class="pos-right" src="img/dathedungeon-kampf.webp" width="1376" height="640" alt=""></div>
@@ -396,6 +414,48 @@
     <div class="links">
       <a href="https://github.com/quangoat/gym-tracker-backend" target="_blank" rel="noopener">Code Backend</a>
       <a href="https://github.com/trangdo06/gym-tracker-frontend" target="_blank" rel="noopener">Code Frontend</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="detail" id="travel-agent" aria-labelledby="travel-title">
+  <button class="close" type="button" aria-label="Schließen">×</button>
+  <div class="detail-body">
+    <p class="meta">HTW Berlin · Modul Grundlagen Projektmanagement · WiSe 2025/26 · Team aus 7 Personen</p>
+    <h2 id="travel-title">KI-gestützter Travel-Agent: Projekt für die Bundesverwaltung</h2>
+    <p class="lead">Ein fiktives Bundesministerium wollte eine App, mit der Mitarbeitende Dienstreisen suchen, buchen und nach dem Bundesreisekostenrecht abrechnen, unterstützt durch KI. Wir haben das Projekt von Anfang bis Ende durchgeführt, mit unserem Dozenten in der Rolle des Auftraggebers: Planung, Marktanalyse, Empfehlung eines Anbieters und ein klickbarer Prototyp.</p>
+
+    <div class="gallery">
+      <a class="light" href="img/travel-mockups.webp" target="_blank" rel="noopener"><img src="img/travel-mockups.webp" width="1821" height="1002" loading="lazy" alt="Mockups der App: Startseite, KI-Empfehlungen, eigene Dienstreisen und Belegabrechnung"></a>
+      <a class="light" href="img/travel-psp.webp" target="_blank" rel="noopener"><img src="img/travel-psp.webp" width="1200" height="1000" loading="lazy" alt="Projektstrukturplan mit fünf Teilbereichen"></a>
+      <a class="light" href="img/travel-aufwand.webp" target="_blank" rel="noopener"><img src="img/travel-aufwand.webp" width="1200" height="1000" loading="lazy" alt="Aufwandsschätzung in Personentagen für Best, Average und Worst Case"></a>
+      <a class="light wide" href="img/travel-zeitplan.webp" target="_blank" rel="noopener"><img src="img/travel-zeitplan.webp" width="2000" height="1153" loading="lazy" alt="Zeitplan als Gantt-Diagramm von Oktober 2025 bis Februar 2026"></a>
+    </div>
+    <p class="gallery-note">Mockups des Prototyps, Projektstrukturplan, Aufwandsschätzung in drei Szenarien, Zeitplan als Gantt-Diagramm. Zum Vergrößern anklicken.</p>
+
+    <h4>Projektplanung</h4>
+    <ul class="points">
+      <li><strong>Make or Buy:</strong> Standardsoftware statt Eigenentwicklung, weil die Zeit knapp war und fertige Lösungen das Reisekostenrecht schon abbilden</li>
+      <li><strong>Zeitplan und Projektstrukturplan:</strong> vier Monate, fünf Teilbereiche von Organisation bis Qualitätssicherung</li>
+      <li><strong>Aufwandsschätzung:</strong> drei Szenarien in Personentagen, im realistischen Fall rund 108.000 Euro bei einem Budget von 115.000 Euro</li>
+      <li><strong>Anbieterauswahl:</strong> Nutzwertanalyse und Investitionsrechnung über fünf Jahre für die fünf besten Anbieter, am Ende die Empfehlung für Navan</li>
+    </ul>
+
+    <h4>Prototyp</h4>
+    <p>Der Anbieter konnte keine Testumgebung bereitstellen, also haben wir eine eigene Web-App als Single Page Application gebaut und auf Vercel gehostet. Sie zeigt den typischen Ablauf: KI-gestützte Suche, Buchung, Belege hochladen und Abrechnung, am Desktop und auf dem iPhone.</p>
+
+    <h4>Qualitätssicherung und Einführung</h4>
+    <ul class="points">
+      <li>Testkatalog mit funktionalen, UI- und Validierungstests, manuell in der Live-Umgebung durchgeführt und in einem Fehlerprotokoll dokumentiert</li>
+      <li>Einführungskonzept: Software as a Service mit Single Sign-on, Anbindung an Finanz- und Personalsysteme, Pilotphase mit Parallelbetrieb, stufenweiser Rollout und Change Management</li>
+    </ul>
+
+    <h4>Ergebnis</h4>
+    <p>Übergabe mit Abschlusspräsentation im Februar 2026. Das Modul habe ich mit 1,0 abgeschlossen.</p>
+
+    <ul class="tags"><li>Projektmanagement</li><li>Gantt</li><li>Aufwandsschätzung</li><li>Nutzwertanalyse</li><li>Investitionsrechnung</li><li>Prototyping</li><li>Vercel</li></ul>
+    <div class="links">
+      <a href="https://travelagent-ai-snowy.vercel.app/" target="_blank" rel="noopener">Prototyp ansehen</a>
     </div>
   </div>
 </dialog>
