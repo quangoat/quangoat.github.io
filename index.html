@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quang Anh Tran · Projekte</title>
-<meta name="description" content="Projektportfolio von Quang Anh Tran, Student der Wirtschaftsinformatik an der HTW Berlin: Prozessautomatisierung, Webentwicklung und RPA.">
+<meta name="description" content="Projektportfolio von Quang Anh Tran, Student der Wirtschaftsinformatik an der HTW Berlin: Prozessautomatisierung, Webentwicklung, RPA und Spieleentwicklung.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B5D8A'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EQT%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,8 @@
     --line: #E4E4E0;
     --accent: #2B5D8A;
     --accent-soft: #EAF1F7;
+    --cover-line: #2B5D8A;
+    --cover-fill: #FFFFFF;
     --tag-bg: #F1F1EE;
   }
   @media (prefers-color-scheme: dark) {
@@ -29,6 +31,8 @@
       --line: #2E3134;
       --accent: #7FB0DA;
       --accent-soft: #1E2A35;
+      --cover-line: #7FB0DA;
+      --cover-fill: #23313D;
       --tag-bg: #26292C;
     }
   }
@@ -40,6 +44,8 @@
     --line: #2E3134;
     --accent: #7FB0DA;
     --accent-soft: #1E2A35;
+    --cover-line: #7FB0DA;
+    --cover-fill: #23313D;
     --tag-bg: #26292C;
   }
 
@@ -51,136 +57,110 @@
     color: var(--text);
     font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 1.6;
   }
   a { color: var(--accent); text-decoration: none; }
   a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
 
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
 
   /* Kopfbereich */
-  header.top { padding: 72px 0 40px; border-bottom: 1px solid var(--line); }
+  header.top { padding: 64px 0 36px; }
   .name {
     font-family: "Lato", sans-serif;
-    font-size: clamp(40px, 8vw, 60px);
+    font-size: clamp(38px, 7vw, 56px);
     line-height: 1.05;
     margin: 0;
     letter-spacing: 0.5px;
   }
   .name .first { font-weight: 100; }
   .name .last { font-weight: 300; }
-  .role { margin: 14px 0 0; color: var(--muted); font-size: 17px; }
-  .intro { margin: 22px 0 0; max-width: 640px; }
-  .status {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    font-size: 14px;
-    font-weight: 600;
+  .sub {
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    gap: 6px 22px; margin-top: 14px; color: var(--muted); font-size: 16px;
   }
-  .contact { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; font-size: 15px; }
-  .contact a { font-weight: 600; }
+  .sub a { font-weight: 600; font-size: 15px; }
 
-  /* Abschnitte */
-  section { padding: 44px 0 8px; }
-  h2 {
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 2.4px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 0 0 22px;
+  /* Raster */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    padding-bottom: 24px;
   }
-
-  /* Projekte */
-  .project {
+  .card {
+    display: flex;
+    flex-direction: column;
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 14px;
-    padding: 28px 28px 24px;
-    margin-bottom: 22px;
+    overflow: hidden;
   }
-  .meta { font-size: 13.5px; color: var(--muted); margin: 0 0 6px; }
-  .project h3 {
+  .cover {
+    display: block;
+    aspect-ratio: 1376 / 640;
+    background: var(--accent-soft);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    line-height: 0;
+  }
+  .cover svg { width: 100%; height: 100%; display: block; }
+  .cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s ease; }
+  a.cover { background: #000; }
+  a.cover:hover img { transform: scale(1.03); }
+
+  .body { display: flex; flex-direction: column; flex: 1; padding: 22px 24px 22px; }
+  .meta { font-size: 13px; color: var(--muted); margin: 0 0 4px; }
+  .card h3 {
     font-family: "Lato", sans-serif;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.3;
-    margin: 0 0 12px;
+    margin: 0 0 10px;
   }
-  .project p { margin: 0 0 14px; }
+  .card p { margin: 0 0 12px; }
   .label {
     font-family: "Lato", sans-serif;
     font-weight: 700;
-    font-size: 15px;
-    margin: 18px 0 6px;
+    font-size: 14.5px;
+    margin: 4px 0 4px !important;
   }
-  .project ul { margin: 0 0 4px; padding-left: 20px; }
-  .project li { margin: 4px 0; }
-  .project .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
-  .project .tags li {
+  .card ul.points { margin: 0; padding-left: 18px; }
+  .card ul.points li { margin: 3px 0; }
+
+  .collage { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 3px; background: #000; }
+  .collage a { display: block; overflow: hidden; min-height: 0; line-height: 0; }
+  .collage a:first-child { grid-row: 1 / span 2; }
+  .collage img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s ease; }
+  .collage img.pos-right { object-position: 78% center; }
+  .collage a:hover img { transform: scale(1.04); }
+  .thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+  .thumbs a { display: block; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: #000; line-height: 0; }
+  .thumbs img { width: 100%; height: auto; display: block; transition: transform .25s ease; }
+  .thumbs a:hover img { transform: scale(1.04); }
+
+  .foot { margin-top: auto; padding-top: 16px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+  .tags li {
     background: var(--tag-bg);
     border-radius: 6px;
-    padding: 3px 10px;
-    font-size: 13px;
+    padding: 2px 9px;
+    font-size: 12.5px;
     font-weight: 600;
-    margin: 0;
   }
-  .links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 18px; font-size: 15px; font-weight: 600; }
-  figure { margin: 18px 0 0; }
-  figure img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
-  figcaption { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; font-size: 14.5px; font-weight: 600; }
 
-  /* Screenshot-Galerie */
-  .shots {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  .shots a {
-    display: block;
-    overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid var(--line);
-    background: #000;
-    line-height: 0;
-  }
-  .shots a:first-child { grid-row: 1 / span 2; }
-  .shots img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
-  .shots a:hover img { transform: scale(1.03); }
-  .shots-caption { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+  footer { padding: 28px 0 48px; color: var(--muted); font-size: 13px; }
 
-  /* Kenntnisse und Studium */
-  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 32px; }
-  .grid h4 { font-family: "Lato", sans-serif; font-weight: 700; font-size: 15px; margin: 0 0 4px; }
-  .grid p { margin: 0; color: var(--text); }
-  .edu { display: grid; grid-template-columns: 130px 1fr; gap: 6px 20px; }
-  .edu .when { color: var(--muted); }
-  .edu p { margin: 0; }
-  .edu .modules { color: var(--muted); font-size: 15px; margin-top: 4px; }
-
-  footer { padding: 48px 0 56px; color: var(--muted); font-size: 13.5px; }
-
-  @media (max-width: 640px) {
-    header.top { padding: 48px 0 32px; }
-    .project { padding: 22px 18px 20px; }
-    .grid { grid-template-columns: 1fr; }
-    .edu { grid-template-columns: 1fr; gap: 2px; }
-    .shots { grid-template-columns: 1fr; }
-    .shots a:first-child { grid-row: auto; }
-    .shots img { height: auto; }
+  @media (max-width: 760px) {
+    header.top { padding: 44px 0 28px; }
+    .grid { grid-template-columns: 1fr; gap: 18px; }
+    .body { padding: 18px 18px 18px; }
   }
   @media print {
-    body { background: #fff; color: #000; font-size: 11pt; }
-    .project { break-inside: avoid; border-color: #ccc; }
-    .status { border: 1px solid #ccc; }
+    body { background: #fff; color: #000; font-size: 10.5pt; }
+    .card { break-inside: avoid; border-color: #ccc; }
   }
 </style>
 </head>
@@ -189,115 +169,150 @@
 <header class="top">
   <div class="wrap">
     <h1 class="name"><span class="first">Quang Anh</span> <span class="last">Tran</span></h1>
-    <p class="role">Wirtschaftsinformatik (B.Sc.) · HTW Berlin</p>
-    <p class="intro">Ich studiere Wirtschaftsinformatik im vierten Semester und interessiere mich vor allem für Prozesse, Automatisierung und KI. Hier zeige ich ausgewählte Projekte aus meinem Studium.</p>
-    <span class="status">Suche ein Pflichtpraktikum in Berlin ab Dezember 2026 (3 Monate)</span>
-    <nav class="contact" aria-label="Kontakt">
+    <div class="sub">
+      <span>Projekte · Wirtschaftsinformatik (B.Sc.), HTW Berlin</span>
       <a href="mailto:quanganhtran6034@gmail.com">quanganhtran6034@gmail.com</a>
       <a href="https://github.com/quangoat">GitHub</a>
-    </nav>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
+  <h2 class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Projekte</h2>
+  <div class="grid">
 
-  <section aria-labelledby="projekte">
-    <h2 id="projekte">Projekte</h2>
-
-    <article class="project">
-      <p class="meta">HTW Berlin · Gruppenprojekt</p>
-      <h3>Prozessautomatisierung mit Camunda 7</h3>
-      <p>Für das fiktive Verpackungsunternehmen PackToTheRoots haben wir einen Auftrags- und einen Reklamationsprozess in BPMN modelliert und mit Camunda 7 automatisiert. Im Auftragsprozess wird der Kampagnenauftrag eines Handelskunden abgewickelt, im Reklamationsprozess werden Kundenreklamationen bearbeitet.</p>
-      <p class="label">Mein Beitrag</p>
-      <ul>
-        <li>E-Mail-Benachrichtigungen über zwei Node.js-Worker angebunden (Camunda External Tasks, REST-API, SMTP)</li>
-        <li>Automatisierung der Transportbuchung mit UiPath (RPA) konzipiert</li>
-        <li>Formulare vereinheitlicht und alle Prozessschritte dokumentiert, inklusive Entwicklerdokumentation und Video-Tutorials</li>
-      </ul>
-      <!-- Screenshot vom BPMN-Diagramm: Bild als bpmn-auftrag.png mit hochladen und die drei Zeilen unten einkommentieren.
-      <figure>
-        <img src="bpmn-auftrag.png" alt="BPMN-Diagramm des Auftragsprozesses in Camunda">
-        <figcaption>Auftragsprozess als BPMN-Diagramm in Camunda Modeler</figcaption>
-      </figure>
-      -->
-      <ul class="tags">
-        <li>Camunda 7</li><li>BPMN 2.0</li><li>Node.js</li><li>REST-API</li><li>UiPath</li>
-      </ul>
-    </article>
-
-    <article class="project">
-      <p class="meta">Modul Webtechnologien · SoSe 2026 · Zweierteam</p>
-      <h3>Gym-Tracker: Webanwendung für Trainingspläne</h3>
-      <p>Eine Webanwendung, mit der Nutzer Workouts planen, Übungen suchen und ihr Training mit Gewicht, Sätzen und Wiederholungen erfassen. So wird der Trainingsfortschritt über die Zeit sichtbar.</p>
-      <p class="label">Mein Beitrag</p>
-      <ul>
-        <li>Übungssuche über eine externe Übungs-API im Backend und Frontend umgesetzt</li>
-        <li>Login mit Auth0 eingebaut, sodass jeder Nutzer nur seine eigenen Workouts sieht (JWT)</li>
-        <li>Unit-Tests für die Kernfunktionen rund um Workouts und Übungen geschrieben</li>
-        <li>Frontend an die REST-API angebunden und Deployment mit Docker auf Render vorbereitet</li>
-      </ul>
-      <ul class="tags">
-        <li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>Vue 3</li><li>TypeScript</li><li>Auth0</li><li>Docker</li><li>GitHub Actions</li>
-      </ul>
-      <div class="links">
-        <a href="https://github.com/quangoat/gym-tracker-backend">Code Backend</a>
-        <a href="https://github.com/trangdo06/gym-tracker-frontend">Code Frontend</a>
+    <!-- 1: Camunda. Für einen echten Screenshot: Bild als img/bpmn.webp hochladen und das div.cover durch
+         <a class="cover" href="img/bpmn.webp"><img src="img/bpmn.webp" alt="BPMN-Diagramm in Camunda"></a> ersetzen. -->
+    <article class="card">
+      <div class="cover" aria-hidden="true">
+        <svg viewBox="0 0 430 200" fill="none" stroke="var(--cover-line)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="40" cy="100" r="13" fill="var(--cover-fill)"/>
+          <path d="M53 100h22"/><path d="M71 96l5 4-5 4"/>
+          <rect x="78" y="78" width="78" height="44" rx="9" fill="var(--cover-fill)"/>
+          <path d="M94 95h46M94 106h30" opacity=".55"/>
+          <path d="M156 100h22"/><path d="M174 96l5 4-5 4"/>
+          <path d="M202 76l24 24-24 24-24-24z" fill="var(--cover-fill)"/>
+          <path d="M194 92l16 16M210 92l-16 16" opacity=".55"/>
+          <path d="M202 76V48h44"/><path d="M242 44l5 4-5 4"/>
+          <path d="M202 124v28h44"/><path d="M242 148l5 4-5 4"/>
+          <rect x="248" y="27" width="78" height="42" rx="9" fill="var(--cover-fill)"/>
+          <path d="M264 43h46M264 54h28" opacity=".55"/>
+          <rect x="248" y="131" width="78" height="42" rx="9" fill="var(--cover-fill)"/>
+          <path d="M262 141l10 7 14-10" opacity=".55"/><rect x="262" y="138" width="26" height="18" rx="2" opacity=".55"/>
+          <path d="M326 48h30v52M326 152h30v-52"/>
+          <path d="M356 100h18"/><path d="M370 96l5 4-5 4"/>
+          <circle cx="390" cy="100" r="13" stroke-width="5" fill="var(--cover-fill)"/>
+        </svg>
+      </div>
+      <div class="body">
+        <p class="meta">HTW Berlin · Gruppenprojekt</p>
+        <h3>Prozessautomatisierung mit Camunda 7</h3>
+        <p>Auftrags- und Reklamationsprozess für das fiktive Verpackungsunternehmen PackToTheRoots, in BPMN modelliert und mit Camunda 7 automatisiert.</p>
+        <p class="label">Mein Beitrag</p>
+        <ul class="points">
+          <li>E-Mail-Benachrichtigungen über zwei Node.js-Worker angebunden (External Tasks, REST-API, SMTP)</li>
+          <li>Automatisierung der Transportbuchung mit UiPath (RPA) konzipiert</li>
+          <li>Formulare vereinheitlicht, Prozess dokumentiert, Video-Tutorials erstellt</li>
+        </ul>
+        <div class="foot">
+          <ul class="tags"><li>Camunda 7</li><li>BPMN 2.0</li><li>Node.js</li><li>REST-API</li><li>UiPath</li></ul>
+        </div>
       </div>
     </article>
 
-    <article class="project">
-      <p class="meta">HTW Berlin · SoSe 2026 · Zweierteam</p>
-      <h3>Robotic Process Automation mit UiPath</h3>
-      <p>Wir haben uns UiPath ohne Vorkenntnisse in RPA erarbeitet und die wichtigsten Aktivitäten dokumentiert. Als Anwendungsfall haben wir einen Ablauf automatisiert, der Daten aus einer Excel-Tabelle in ein Webformular überträgt. Anschließend haben wir RPA mit klassischer Programmierung verglichen.</p>
-      <ul class="tags">
-        <li>UiPath Studio</li><li>RPA</li><li>Excel</li>
-      </ul>
+    <!-- 2: Gym-Tracker -->
+    <article class="card">
+      <div class="cover" aria-hidden="true">
+        <svg viewBox="0 0 430 200" fill="none" stroke="var(--cover-line)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="95" y="24" width="240" height="152" rx="12" fill="var(--cover-fill)"/>
+          <path d="M95 48h240"/>
+          <circle cx="111" cy="36" r="3.2"/><circle cx="123" cy="36" r="3.2"/><circle cx="135" cy="36" r="3.2"/>
+          <path d="M115 150V122M140 150V108M165 150V114M190 150V96M215 150V88" stroke-width="10" opacity=".35"/>
+          <path d="M115 116l25-16 25 6 25-20 25-8" />
+          <circle cx="215" cy="78" r="4" fill="var(--cover-line)"/>
+          <path d="M245 150h70" opacity=".5"/>
+          <rect x="250" y="66" width="12" height="36" rx="3" fill="var(--cover-fill)"/>
+          <rect x="298" y="66" width="12" height="36" rx="3" fill="var(--cover-fill)"/>
+          <rect x="241" y="73" width="9" height="22" rx="2.5" fill="var(--cover-fill)"/>
+          <rect x="310" y="73" width="9" height="22" rx="2.5" fill="var(--cover-fill)"/>
+          <path d="M262 84h36" stroke-width="5"/>
+          <path d="M250 120h60M250 132h40" opacity=".5"/>
+        </svg>
+      </div>
+      <div class="body">
+        <p class="meta">Modul Webtechnologien · SoSe 2026 · Zweierteam</p>
+        <h3>Gym-Tracker: Webanwendung für Trainingspläne</h3>
+        <p>Workouts planen, Übungen suchen und Training mit Gewicht, Sätzen und Wiederholungen erfassen, damit der Fortschritt sichtbar wird.</p>
+        <p class="label">Mein Beitrag</p>
+        <ul class="points">
+          <li>Übungssuche über eine externe API in Backend und Frontend</li>
+          <li>Login mit Auth0, jeder Nutzer sieht nur seine eigenen Workouts (JWT)</li>
+          <li>Unit-Tests für die Kernfunktionen</li>
+          <li>Frontend an die REST-API angebunden, Deployment mit Docker vorbereitet</li>
+        </ul>
+        <div class="foot">
+          <ul class="tags"><li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>Vue 3</li><li>TypeScript</li><li>Auth0</li><li>Docker</li></ul>
+          <div class="links">
+            <a href="https://github.com/quangoat/gym-tracker-backend">Code Backend</a>
+            <a href="https://github.com/trangdo06/gym-tracker-frontend">Code Frontend</a>
+          </div>
+        </div>
+      </div>
     </article>
 
-    <article class="project">
-      <p class="meta">Schulprojekt · Dathe-Gymnasium · 11. Klasse · Team aus 7 Personen</p>
-      <h3>DatheDungeon: Dungeon Crawler in Java</h3>
-      <p>Ein 2D-Spiel, in dem man sich durch die eigene Schule kämpft: Flure und Klassenräume sind dem Dathe-Gymnasium nachgebaut. Die Schule ist voller Monster, und Raum für Raum muss man sie besiegen, um am Ende den Abschluss zu bekommen. Lehrkräfte geben unterwegs Hinweise.</p>
-      <p class="label">Mein Beitrag</p>
-      <ul>
-        <li>Spiellogik programmiert, also wie sich Spielfigur, Monster und Räume verhalten</li>
-        <li>Gameplay entworfen: wie man sich durch die Räume kämpft und was man dafür braucht</li>
-        <li>Character Design der Spielfiguren</li>
-      </ul>
-      <div class="shots">
-        <a href="img/dathedungeon-kampf.webp"><img src="img/dathedungeon-kampf.webp" width="1376" height="640" loading="lazy" alt="Kampf gegen Monster im Geografieraum"></a>
-        <a href="img/dathedungeon-dialog.webp"><img src="img/dathedungeon-dialog.webp" width="1376" height="640" loading="lazy" alt="Gespräch mit einem Lehrer auf dem Schulflur"></a>
-        <a href="img/dathedungeon-start.webp"><img src="img/dathedungeon-start.webp" width="1376" height="640" loading="lazy" alt="Startbildschirm von DatheDungeon"></a>
+    <!-- 3: UiPath -->
+    <article class="card">
+      <div class="cover" aria-hidden="true">
+        <svg viewBox="0 0 430 200" fill="none" stroke="var(--cover-line)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="52" y="40" width="130" height="120" rx="10" fill="var(--cover-fill)"/>
+          <path d="M52 70h130M52 100h130M52 130h130M95 40v120M139 40v120" opacity=".55"/>
+          <path d="M60 55h26M103 55h26M147 55h26" stroke-width="3"/>
+          <path d="M200 100h50"/><path d="M244 94l7 6-7 6"/>
+          <circle cx="225" cy="70" r="16" fill="var(--cover-fill)"/>
+          <path d="M218 66v2M232 66v2M218 76c4 3 10 3 14 0"/>
+          <path d="M225 54v-6"/><circle cx="225" cy="45" r="3"/>
+          <rect x="262" y="40" width="120" height="120" rx="10" fill="var(--cover-fill)"/>
+          <path d="M278 58h40" opacity=".55"/>
+          <rect x="278" y="66" width="88" height="16" rx="4"/>
+          <path d="M278 94h30" opacity=".55"/>
+          <rect x="278" y="102" width="88" height="16" rx="4"/>
+          <rect x="318" y="130" width="48" height="18" rx="5" fill="var(--cover-line)" stroke="none" opacity=".85"/>
+        </svg>
       </div>
-      <p class="shots-caption">Screenshots aus dem Spiel: Kampf im Geografieraum, Gespräch mit einem Lehrer, Startbildschirm. Zum Vergrößern anklicken.</p>
-      <ul class="tags">
-        <li>Java</li><li>Java Swing</li><li>2D-Grafik</li><li>Pixel Art</li>
-      </ul>
+      <div class="body">
+        <p class="meta">HTW Berlin · SoSe 2026 · Zweierteam</p>
+        <h3>Robotic Process Automation mit UiPath</h3>
+        <p>UiPath ohne Vorkenntnisse in RPA erarbeitet und die wichtigsten Aktivitäten dokumentiert. Als Anwendungsfall einen Ablauf automatisiert, der Daten aus einer Excel-Tabelle in ein Webformular überträgt, und RPA danach mit klassischer Programmierung verglichen.</p>
+        <div class="foot">
+          <ul class="tags"><li>UiPath Studio</li><li>RPA</li><li>Excel</li></ul>
+        </div>
+      </div>
     </article>
-  </section>
 
-  <section aria-labelledby="kenntnisse">
-    <h2 id="kenntnisse">Kenntnisse</h2>
-    <div class="grid">
-      <div><h4>Programmierung</h4><p>Java, JavaScript, TypeScript, C, SQL</p></div>
-      <div><h4>Web und Backend</h4><p>Spring Boot, Vue 3, REST-APIs, Docker</p></div>
-      <div><h4>Prozesse und Automatisierung</h4><p>BPMN 2.0, Camunda 7, UiPath</p></div>
-      <div><h4>Werkzeuge</h4><p>Git und GitHub, MS Office</p></div>
-      <div><h4>Sprachen</h4><p>Deutsch (C2), Englisch (C1), Vietnamesisch (Grundkenntnisse)</p></div>
-    </div>
-  </section>
-
-  <section aria-labelledby="studium">
-    <h2 id="studium">Studium</h2>
-    <div class="edu">
-      <span class="when">seit 04/2025</span>
-      <div>
-        <p>Wirtschaftsinformatik (B.Sc.), HTW Berlin</p>
-        <p class="modules">Ausgewählte Module: Grundlagen Projektmanagement (1,0), Geschäftsprozesse und betriebliche Anwendungen, Datenbanken, Webtechnologien, Statistik</p>
+    <!-- 4: DatheDungeon -->
+    <article class="card">
+      <div class="cover collage">
+        <a href="img/dathedungeon-kampf.webp"><img class="pos-right" src="img/dathedungeon-kampf.webp" width="1376" height="640" alt="DatheDungeon: Kampf gegen Monster im Geografieraum"></a>
+        <a href="img/dathedungeon-dialog.webp"><img src="img/dathedungeon-dialog.webp" width="1376" height="640" alt="Gespräch mit einem Lehrer auf dem Schulflur"></a>
+        <a href="img/dathedungeon-start.webp"><img src="img/dathedungeon-start.webp" width="1376" height="640" alt="Startbildschirm von DatheDungeon"></a>
       </div>
-    </div>
-  </section>
+      <div class="body">
+        <p class="meta">Schulprojekt · Dathe-Gymnasium · 11. Klasse · Team aus 7 Personen</p>
+        <h3>DatheDungeon: Dungeon Crawler in Java</h3>
+        <p>Ein 2D-Spiel, in dem man sich durch die nachgebaute Schule kämpft. Raum für Raum müssen Monster besiegt werden, um am Ende den Abschluss zu bekommen.</p>
+        <p class="label">Mein Beitrag</p>
+        <ul class="points">
+          <li>Spiellogik: wie sich Spielfigur, Monster und Räume verhalten</li>
+          <li>Gameplay-Design: Ablauf und Fortschritt durch die Räume</li>
+          <li>Character Design der Spielfiguren</li>
+        </ul>
+        <div class="foot">
+          <ul class="tags"><li>Java</li><li>Java Swing</li><li>2D-Grafik</li><li>Pixel Art</li></ul>
+        </div>
+      </div>
+    </article>
 
+  </div>
 </main>
 
 <footer>
