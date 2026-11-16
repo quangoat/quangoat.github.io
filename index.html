@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quang Anh Tran · Projekte</title>
+<meta name="description" content="Projektportfolio von Quang Anh Tran, Student der Wirtschaftsinformatik an der HTW Berlin: Prozessautomatisierung, Webentwicklung und RPA.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B5D8A'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EQT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --surface: #FFFFFF;
+    --text: #1C1C1C;
+    --muted: #6A6A6A;
+    --line: #E4E4E0;
+    --accent: #2B5D8A;
+    --accent-soft: #EAF1F7;
+    --tag-bg: #F1F1EE;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141516;
+      --surface: #1C1E20;
+      --text: #ECECEA;
+      --muted: #A3A3A0;
+      --line: #2E3134;
+      --accent: #7FB0DA;
+      --accent-soft: #1E2A35;
+      --tag-bg: #26292C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141516;
+    --surface: #1C1E20;
+    --text: #ECECEA;
+    --muted: #A3A3A0;
+    --line: #2E3134;
+    --accent: #7FB0DA;
+    --accent-soft: #1E2A35;
+    --tag-bg: #26292C;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  /* Kopfbereich */
+  header.top { padding: 72px 0 40px; border-bottom: 1px solid var(--line); }
+  .name {
+    font-family: "Lato", sans-serif;
+    font-size: clamp(40px, 8vw, 60px);
+    line-height: 1.05;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+  .name .first { font-weight: 100; }
+  .name .last { font-weight: 300; }
+  .role { margin: 14px 0 0; color: var(--muted); font-size: 17px; }
+  .intro { margin: 22px 0 0; max-width: 640px; }
+  .status {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .contact { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; font-size: 15px; }
+  .contact a { font-weight: 600; }
+
+  /* Abschnitte */
+  section { padding: 44px 0 8px; }
+  h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 22px;
+  }
+
+  /* Projekte */
+  .project {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 28px 24px;
+    margin-bottom: 22px;
+  }
+  .meta { font-size: 13.5px; color: var(--muted); margin: 0 0 6px; }
+  .project h3 {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.3;
+    margin: 0 0 12px;
+  }
+  .project p { margin: 0 0 14px; }
+  .label {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 18px 0 6px;
+  }
+  .project ul { margin: 0 0 4px; padding-left: 20px; }
+  .project li { margin: 4px 0; }
+  .project .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
+  .project .tags li {
+    background: var(--tag-bg);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 18px; font-size: 15px; font-weight: 600; }
+  figure { margin: 18px 0 0; }
+  figure img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+  figcaption { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  /* Kenntnisse und Studium */
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 32px; }
+  .grid h4 { font-family: "Lato", sans-serif; font-weight: 700; font-size: 15px; margin: 0 0 4px; }
+  .grid p { margin: 0; color: var(--text); }
+  .edu { display: grid; grid-template-columns: 130px 1fr; gap: 6px 20px; }
+  .edu .when { color: var(--muted); }
+  .edu p { margin: 0; }
+  .edu .modules { color: var(--muted); font-size: 15px; margin-top: 4px; }
+
+  footer { padding: 48px 0 56px; color: var(--muted); font-size: 13.5px; }
+
+  @media (max-width: 640px) {
+    header.top { padding: 48px 0 32px; }
+    .project { padding: 22px 18px 20px; }
+    .grid { grid-template-columns: 1fr; }
+    .edu { grid-template-columns: 1fr; gap: 2px; }
+  }
+  @media print {
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .project { break-inside: avoid; border-color: #ccc; }
+    .status { border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1 class="name"><span class="first">Quang Anh</span> <span class="last">Tran</span></h1>
+    <p class="role">Wirtschaftsinformatik (B.Sc.) · HTW Berlin</p>
+    <p class="intro">Ich studiere Wirtschaftsinformatik im vierten Semester und interessiere mich vor allem für Prozesse, Automatisierung und KI. Hier zeige ich ausgewählte Projekte aus meinem Studium.</p>
+    <span class="status">Suche ein Pflichtpraktikum in Berlin ab Dezember 2026 (3 Monate)</span>
+    <nav class="contact" aria-label="Kontakt">
+      <a href="mailto:quanganhtran6034@gmail.com">quanganhtran6034@gmail.com</a>
+      <a href="https://github.com/quangoat">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section aria-labelledby="projekte">
+    <h2 id="projekte">Projekte</h2>
+
+    <article class="project">
+      <p class="meta">HTW Berlin · Gruppenprojekt</p>
+      <h3>Prozessautomatisierung mit Camunda 7</h3>
+      <p>Für das fiktive Verpackungsunternehmen PackToTheRoots haben wir einen Auftrags- und einen Reklamationsprozess in BPMN modelliert und mit Camunda 7 automatisiert. Im Auftragsprozess wird der Kampagnenauftrag eines Handelskunden abgewickelt, im Reklamationsprozess werden Kundenreklamationen bearbeitet.</p>
+      <p class="label">Mein Beitrag</p>
+      <ul>
+        <li>E-Mail-Benachrichtigungen über zwei Node.js-Worker angebunden (Camunda External Tasks, REST-API, SMTP)</li>
+        <li>Automatisierung der Transportbuchung mit UiPath (RPA) konzipiert</li>
+        <li>Formulare vereinheitlicht und alle Prozessschritte dokumentiert, inklusive Entwicklerdokumentation und Video-Tutorials</li>
+      </ul>
+      <!-- Screenshot vom BPMN-Diagramm: Bild als bpmn-auftrag.png mit hochladen und die drei Zeilen unten einkommentieren.
+      <figure>
+        <img src="bpmn-auftrag.png" alt="BPMN-Diagramm des Auftragsprozesses in Camunda">
+        <figcaption>Auftragsprozess als BPMN-Diagramm in Camunda Modeler</figcaption>
+      </figure>
+      -->
+      <ul class="tags">
+        <li>Camunda 7</li><li>BPMN 2.0</li><li>Node.js</li><li>REST-API</li><li>UiPath</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <p class="meta">Modul Webtechnologien · SoSe 2026 · Zweierteam</p>
+      <h3>Gym-Tracker: Webanwendung für Trainingspläne</h3>
+      <p>Eine Webanwendung, mit der Nutzer Workouts planen, Übungen suchen und ihr Training mit Gewicht, Sätzen und Wiederholungen erfassen. So wird der Trainingsfortschritt über die Zeit sichtbar.</p>
+      <p class="label">Mein Beitrag</p>
+      <ul>
+        <li>Übungssuche über eine externe Übungs-API im Backend und Frontend umgesetzt</li>
+        <li>Login mit Auth0 eingebaut, sodass jeder Nutzer nur seine eigenen Workouts sieht (JWT)</li>
+        <li>Unit-Tests für die Kernfunktionen rund um Workouts und Übungen geschrieben</li>
+        <li>Frontend an die REST-API angebunden und Deployment mit Docker auf Render vorbereitet</li>
+      </ul>
+      <ul class="tags">
+        <li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>Vue 3</li><li>TypeScript</li><li>Auth0</li><li>Docker</li><li>GitHub Actions</li>
+      </ul>
+      <div class="links">
+        <a href="https://github.com/quangoat/gym-tracker-backend">Code Backend</a>
+        <a href="https://github.com/trangdo06/gym-tracker-frontend">Code Frontend</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <p class="meta">HTW Berlin · SoSe 2026 · Zweierteam</p>
+      <h3>Robotic Process Automation mit UiPath</h3>
+      <p>Wir haben uns UiPath ohne Vorkenntnisse in RPA erarbeitet und die wichtigsten Aktivitäten dokumentiert. Als Anwendungsfall haben wir einen Ablauf automatisiert, der Daten aus einer Excel-Tabelle in ein Webformular überträgt. Anschließend haben wir RPA mit klassischer Programmierung verglichen.</p>
+      <ul class="tags">
+        <li>UiPath Studio</li><li>RPA</li><li>Excel</li>
+      </ul>
+    </article>
+  </section>
+
+  <section aria-labelledby="kenntnisse">
+    <h2 id="kenntnisse">Kenntnisse</h2>
+    <div class="grid">
+      <div><h4>Programmierung</h4><p>Java, JavaScript, TypeScript, C, SQL</p></div>
+      <div><h4>Web und Backend</h4><p>Spring Boot, Vue 3, REST-APIs, Docker</p></div>
+      <div><h4>Prozesse und Automatisierung</h4><p>BPMN 2.0, Camunda 7, UiPath</p></div>
+      <div><h4>Werkzeuge</h4><p>Git und GitHub, MS Office</p></div>
+      <div><h4>Sprachen</h4><p>Deutsch (C2), Englisch (C1), Vietnamesisch (Grundkenntnisse)</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="studium">
+    <h2 id="studium">Studium</h2>
+    <div class="edu">
+      <span class="when">seit 04/2025</span>
+      <div>
+        <p>Wirtschaftsinformatik (B.Sc.), HTW Berlin</p>
+        <p class="modules">Ausgewählte Module: Grundlagen Projektmanagement (1,0), Geschäftsprozesse und betriebliche Anwendungen, Datenbanken, Webtechnologien, Statistik</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Quang Anh Tran · Stand: November 2026</div>
+</footer>
+
+</body>
+</html>
