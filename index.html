@@ -124,6 +124,7 @@
   .collage > :first-child { grid-row: 1 / span 2; }
   .collage img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .collage img.pos-right { object-position: 78% center; }
+  .collage img.pos-left { object-position: left center; }
 
   .body { display: flex; flex-direction: column; flex: 1; padding: 20px 24px 20px; }
   .meta { font-size: 13px; color: var(--muted); margin: 0 0 4px; }
@@ -270,21 +271,10 @@
 
     <!-- Kachel 2: Gym-Tracker -->
     <a class="card" href="#gym-tracker" aria-label="Details: Gym-Tracker">
-      <div class="cover" aria-hidden="true">
-        <svg class="ill" viewBox="0 0 430 200">
-          <rect class="f" x="95" y="24" width="240" height="152" rx="12"/>
-          <path d="M95 48h240"/>
-          <circle cx="111" cy="36" r="3.2"/><circle cx="123" cy="36" r="3.2"/><circle cx="135" cy="36" r="3.2"/>
-          <path d="M115 150V122M140 150V108M165 150V114M190 150V96M215 150V88" style="stroke-width:10;opacity:.35"/>
-          <path d="M115 116l25-16 25 6 25-20 25-8"/>
-          <circle class="solid" cx="215" cy="78" r="4"/>
-          <rect class="f" x="250" y="66" width="12" height="36" rx="3"/>
-          <rect class="f" x="298" y="66" width="12" height="36" rx="3"/>
-          <rect class="f" x="241" y="73" width="9" height="22" rx="2.5"/>
-          <rect class="f" x="310" y="73" width="9" height="22" rx="2.5"/>
-          <path d="M262 84h36" style="stroke-width:5"/>
-          <path class="soft" d="M250 120h60M250 132h40M245 150h70"/>
-        </svg>
+      <div class="cover collage" aria-hidden="true">
+        <div><img class="pos-left" src="img/gymtracker-dashboard.webp" width="1376" height="640" alt=""></div>
+        <div><img src="img/gymtracker-training.webp" width="1376" height="640" alt=""></div>
+        <div><img class="pos-left" src="img/gymtracker-verlauf.webp" width="1376" height="640" alt=""></div>
       </div>
       <div class="body">
         <p class="meta">Modul Webtechnologien · SoSe 2026 · Zweierteam</p>
@@ -404,26 +394,17 @@
 
 <dialog class="detail" id="gym-tracker" aria-labelledby="gym-title">
   <button class="close" type="button" aria-label="Schließen">×</button>
-  <div class="cover" aria-hidden="true">
-    <svg class="ill" viewBox="0 0 430 200">
-      <rect class="f" x="95" y="24" width="240" height="152" rx="12"/>
-      <path d="M95 48h240"/>
-      <circle cx="111" cy="36" r="3.2"/><circle cx="123" cy="36" r="3.2"/><circle cx="135" cy="36" r="3.2"/>
-      <path d="M115 150V122M140 150V108M165 150V114M190 150V96M215 150V88" style="stroke-width:10;opacity:.35"/>
-      <path d="M115 116l25-16 25 6 25-20 25-8"/>
-      <circle class="solid" cx="215" cy="78" r="4"/>
-      <rect class="f" x="250" y="66" width="12" height="36" rx="3"/>
-      <rect class="f" x="298" y="66" width="12" height="36" rx="3"/>
-      <rect class="f" x="241" y="73" width="9" height="22" rx="2.5"/>
-      <rect class="f" x="310" y="73" width="9" height="22" rx="2.5"/>
-      <path d="M262 84h36" style="stroke-width:5"/>
-      <path class="soft" d="M250 120h60M250 132h40M245 150h70"/>
-    </svg>
-  </div>
   <div class="detail-body">
     <p class="meta">Modul Webtechnologien · SoSe 2026 · Zweierteam</p>
     <h2 id="gym-title">Gym-Tracker: Webanwendung für Trainingspläne</h2>
     <p class="lead">Eine Webanwendung, mit der man sein Training plant und protokolliert, sodass Fortschritte über die Zeit sichtbar werden.</p>
+
+    <div class="gallery">
+      <a href="img/gymtracker-dashboard.webp" target="_blank" rel="noopener"><img src="img/gymtracker-dashboard.webp" width="1376" height="640" loading="lazy" alt="Dashboard mit Statistiken, Workout-Vorlagen und Trainingskalender"></a>
+      <a href="img/gymtracker-training.webp" target="_blank" rel="noopener"><img src="img/gymtracker-training.webp" width="1376" height="640" loading="lazy" alt="Laufendes Training mit Gewicht und Wiederholungen pro Satz"></a>
+      <a href="img/gymtracker-verlauf.webp" target="_blank" rel="noopener"><img src="img/gymtracker-verlauf.webp" width="1376" height="640" loading="lazy" alt="Trainingsverlauf mit allen bisherigen Sessions"></a>
+    </div>
+    <p class="gallery-note">Dashboard, laufendes Training, Trainingsverlauf. Screenshots mit Beispieldaten, zum Vergrößern anklicken.</p>
 
     <h4>Funktionen</h4>
     <ul class="points">
