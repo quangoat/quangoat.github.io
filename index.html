@@ -242,8 +242,8 @@
   <h2 class="sr-only">Projekte</h2>
   <div class="grid">
 
-    <!-- Kachel 1: Camunda -->
-    <a class="card" href="#camunda" aria-label="Details: Prozessautomatisierung mit Camunda 7">
+    <!-- Kachel 1: PackToTheRoots -->
+    <a class="card" href="#packtotheroots" aria-label="Details: PackToTheRoots">
       <div class="cover" aria-hidden="true">
         <svg class="ill" viewBox="0 0 430 200">
           <circle class="f" cx="40" cy="100" r="13"/>
@@ -265,9 +265,9 @@
         </svg>
       </div>
       <div class="body">
-        <p class="meta">HTW Berlin · Gruppenprojekt</p>
-        <h3>Prozessautomatisierung mit Camunda 7</h3>
-        <p class="teaser">Auftrags- und Reklamationsprozess eines fiktiven Verpackungsunternehmens, in BPMN modelliert und automatisiert.</p>
+        <p class="meta">HTW Berlin · SoSe 2026 · Gruppenprojekt</p>
+        <h3>PackToTheRoots: Prozessautomatisierung mit Camunda und UiPath</h3>
+        <p class="teaser">Auftrags- und Reklamationsprozess eines fiktiven Verpackungsunternehmens, in BPMN modelliert, mit Camunda automatisiert und um einen UiPath-Bot ergänzt.</p>
         <div class="foot">
           <ul class="tags"><li>Camunda 7</li><li>BPMN 2.0</li><li>Node.js</li><li>UiPath</li></ul>
           <span class="more">Details ansehen <span aria-hidden="true">→</span></span>
@@ -293,36 +293,7 @@
       </div>
     </a>
 
-    <!-- Kachel 3: UiPath -->
-    <a class="card" href="#uipath" aria-label="Details: Robotic Process Automation mit UiPath">
-      <div class="cover" aria-hidden="true">
-        <svg class="ill" viewBox="0 0 430 200">
-          <rect class="f" x="52" y="40" width="130" height="120" rx="10"/>
-          <path class="soft" d="M52 70h130M52 100h130M52 130h130M95 40v120M139 40v120"/>
-          <path d="M60 55h26M103 55h26M147 55h26" style="stroke-width:3"/>
-          <path d="M200 100h50M244 94l7 6-7 6"/>
-          <circle class="f" cx="225" cy="70" r="16"/>
-          <path d="M218 66v2M232 66v2M218 76c4 3 10 3 14 0M225 54v-6"/>
-          <circle cx="225" cy="45" r="3"/>
-          <rect class="f" x="262" y="40" width="120" height="120" rx="10"/>
-          <path class="soft" d="M278 58h40M278 94h30"/>
-          <rect x="278" y="66" width="88" height="16" rx="4"/>
-          <rect x="278" y="102" width="88" height="16" rx="4"/>
-          <rect class="solid" x="318" y="130" width="48" height="18" rx="5" style="opacity:.85"/>
-        </svg>
-      </div>
-      <div class="body">
-        <p class="meta">HTW Berlin · SoSe 2026 · Zweierteam</p>
-        <h3>Robotic Process Automation mit UiPath</h3>
-        <p class="teaser">Einarbeitung in RPA und ein Bot, der Daten aus Excel automatisch in ein Webformular überträgt.</p>
-        <div class="foot">
-          <ul class="tags"><li>UiPath Studio</li><li>RPA</li><li>Excel</li></ul>
-          <span class="more">Details ansehen <span aria-hidden="true">→</span></span>
-        </div>
-      </div>
-    </a>
-
-    <!-- Kachel 4: DatheDungeon -->
+    <!-- Kachel 3: DatheDungeon -->
     <a class="card" href="#dathedungeon" aria-label="Details: DatheDungeon">
       <div class="cover collage" aria-hidden="true">
         <div><img class="pos-right" src="img/dathedungeon-kampf.webp" width="1376" height="640" alt=""></div>
@@ -349,7 +320,7 @@
 
 <!-- ===================== Detailansichten ===================== -->
 
-<dialog class="detail" id="camunda" aria-labelledby="camunda-title">
+<dialog class="detail" id="packtotheroots" aria-labelledby="ptr-title">
   <button class="close" type="button" aria-label="Schließen">×</button>
   <div class="cover" aria-hidden="true">
     <svg class="ill" viewBox="0 0 430 200">
@@ -372,29 +343,37 @@
     </svg>
   </div>
   <div class="detail-body">
-    <p class="meta">HTW Berlin · Gruppenprojekt</p>
-    <h2 id="camunda-title">Prozessautomatisierung mit Camunda 7</h2>
-    <p class="lead">Für das fiktive, nachhaltige Verpackungsunternehmen PackToTheRoots haben wir zwei Geschäftsprozesse in BPMN modelliert und mit der Process Engine Camunda 7 automatisiert.</p>
+    <p class="meta">HTW Berlin · SoSe 2026 · Gruppenprojekt</p>
+    <h2 id="ptr-title">PackToTheRoots: Prozessautomatisierung mit Camunda und UiPath</h2>
+    <p class="lead">Für das fiktive, nachhaltige Verpackungsunternehmen PackToTheRoots haben wir zwei Geschäftsprozesse in BPMN modelliert, mit der Process Engine Camunda 7 automatisiert und untersucht, welche Schritte zusätzlich ein Software-Roboter (RPA) übernehmen kann.</p>
 
     <h4>Worum es geht</h4>
     <ul class="points">
       <li><strong>Auftragsprozess:</strong> Ein Handelskunde bestellt Verpackungen für eine Kampagne, mit festem Budget und FSC-zertifizierten Materialien.</li>
       <li><strong>Reklamationsprozess:</strong> Reklamationen werden mit einer Ticketnummer erfasst und bearbeitet. Benachrichtigungen gehen automatisch per E-Mail raus.</li>
+      <li><strong>Robotic Process Automation:</strong> Wiederkehrende Eingaben wie die Transportbuchung soll ein UiPath-Bot statt eines Menschen erledigen.</li>
     </ul>
 
-    <h4>Mein Beitrag</h4>
+    <h4>Mein Beitrag: Camunda</h4>
     <ul class="points">
       <li>Zwei Node.js-Worker für Camunda External Tasks lauffähig gemacht und paketiert: SMTP mit STARTTLS, Topic-Subscriptions und Authentifizierung an der Camunda REST-API</li>
       <li>Fehler in einem Execution Listener behoben, bei dem die Empfängeradresse für E-Mails falsch gesetzt war</li>
-      <li>Für die Transportbuchung eine RPA-Integration mit UiPath konzipiert: erst die Dateneingabe durch einen Menschen, danach ein automatischer Service Task</li>
       <li>Formularfelder per Python-Skript vereinheitlicht und alle Prozessschritte auf Deutsch dokumentiert</li>
       <li>Entwicklerdokumentation, Formulartabellen für alle 12 User Tasks und Skripte für Video-Tutorials erstellt</li>
+    </ul>
+
+    <h4>Mein Beitrag: UiPath</h4>
+    <ul class="points">
+      <li>Zu zweit ohne Vorerfahrung in UiPath Studio eingearbeitet und die wichtigsten Aktivitäten dokumentiert</li>
+      <li>Einen Bot gebaut, der Daten aus einer Excel-Tabelle liest und automatisch in ein Webformular einträgt</li>
+      <li>Die Transportbuchung im Auftragsprozess so aufgeteilt, dass erst ein Mensch die Daten eingibt und danach ein Service Task den Bot startet</li>
+      <li>RPA mit klassischer Programmierung verglichen: Wann lohnt sich ein Bot, und wann ist eigener Code die bessere Wahl?</li>
     </ul>
 
     <h4>Abschluss</h4>
     <p>Abschlusspräsentation mit dem durchgespielten Kundenszenario, Lessons Learned zu Teamarbeit und Projektmanagement sowie einer Aufwandsabrechnung pro Teammitglied.</p>
 
-    <ul class="tags"><li>Camunda 7</li><li>BPMN 2.0</li><li>Node.js</li><li>REST-API</li><li>SMTP</li><li>UiPath</li><li>Python</li></ul>
+    <ul class="tags"><li>Camunda 7</li><li>BPMN 2.0</li><li>Node.js</li><li>REST-API</li><li>SMTP</li><li>UiPath Studio</li><li>RPA</li><li>Excel</li><li>Python</li></ul>
   </div>
 </dialog>
 
@@ -439,40 +418,6 @@
       <a href="https://github.com/quangoat/gym-tracker-backend" target="_blank" rel="noopener">Code Backend</a>
       <a href="https://github.com/trangdo06/gym-tracker-frontend" target="_blank" rel="noopener">Code Frontend</a>
     </div>
-  </div>
-</dialog>
-
-<dialog class="detail" id="uipath" aria-labelledby="uipath-title">
-  <button class="close" type="button" aria-label="Schließen">×</button>
-  <div class="cover" aria-hidden="true">
-    <svg class="ill" viewBox="0 0 430 200">
-      <rect class="f" x="52" y="40" width="130" height="120" rx="10"/>
-      <path class="soft" d="M52 70h130M52 100h130M52 130h130M95 40v120M139 40v120"/>
-      <path d="M60 55h26M103 55h26M147 55h26" style="stroke-width:3"/>
-      <path d="M200 100h50M244 94l7 6-7 6"/>
-      <circle class="f" cx="225" cy="70" r="16"/>
-      <path d="M218 66v2M232 66v2M218 76c4 3 10 3 14 0M225 54v-6"/>
-      <circle cx="225" cy="45" r="3"/>
-      <rect class="f" x="262" y="40" width="120" height="120" rx="10"/>
-      <path class="soft" d="M278 58h40M278 94h30"/>
-      <rect x="278" y="66" width="88" height="16" rx="4"/>
-      <rect x="278" y="102" width="88" height="16" rx="4"/>
-      <rect class="solid" x="318" y="130" width="48" height="18" rx="5" style="opacity:.85"/>
-    </svg>
-  </div>
-  <div class="detail-body">
-    <p class="meta">HTW Berlin · SoSe 2026 · Zweierteam</p>
-    <h2 id="uipath-title">Robotic Process Automation mit UiPath</h2>
-    <p class="lead">Zu zweit haben wir uns ohne Vorerfahrung in Robotic Process Automation eingearbeitet und das Gelernte an einem eigenen Anwendungsfall ausprobiert.</p>
-
-    <h4>Was wir gemacht haben</h4>
-    <ul class="points">
-      <li>Die wichtigsten Aktivitäten in UiPath Studio kennengelernt und dokumentiert</li>
-      <li>Anwendungsfall: Ein Bot liest Daten aus einer Excel-Tabelle und trägt sie automatisch in ein Webformular ein</li>
-      <li>RPA mit klassischer Programmierung verglichen: Wann lohnt sich ein Bot, und wann ist eigener Code die bessere Wahl?</li>
-    </ul>
-
-    <ul class="tags"><li>UiPath Studio</li><li>RPA</li><li>Excel</li></ul>
   </div>
 </dialog>
 
@@ -525,6 +470,8 @@
 (function () {
   function target() {
     var id = decodeURIComponent(location.hash.slice(1));
+    var alias = { camunda: 'packtotheroots', uipath: 'packtotheroots' };
+    if (alias[id]) id = alias[id];
     var el = id ? document.getElementById(id) : null;
     return el && el.tagName === 'DIALOG' ? el : null;
   }
