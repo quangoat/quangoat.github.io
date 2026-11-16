@@ -125,6 +125,7 @@
   .collage img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .collage img.pos-right { object-position: 78% center; }
   .collage img.pos-left { object-position: left center; }
+  .collage.light { background: var(--line); }
 
   .body { display: flex; flex-direction: column; flex: 1; padding: 20px 24px 20px; }
   .meta { font-size: 13px; color: var(--muted); margin: 0 0 4px; }
@@ -210,7 +211,8 @@
   .detail .links { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 16px; font-weight: 600; }
   .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
   .gallery a { display: block; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: #000; line-height: 0; }
-  .gallery a:first-child { grid-column: 1 / -1; }
+  .gallery a:first-child, .gallery a.wide { grid-column: 1 / -1; }
+  .gallery a.light { background: #fff; }
   .gallery img { width: 100%; height: auto; display: block; }
   .gallery-note { font-size: 13px; color: var(--muted); margin-top: 8px !important; }
 
@@ -244,30 +246,15 @@
 
     <!-- Kachel 1: PackToTheRoots -->
     <a class="card" href="#packtotheroots" aria-label="Details: PackToTheRoots">
-      <div class="cover" aria-hidden="true">
-        <svg class="ill" viewBox="0 0 430 200">
-          <circle class="f" cx="40" cy="100" r="13"/>
-          <path d="M53 100h22M71 96l5 4-5 4"/>
-          <rect class="f" x="78" y="78" width="78" height="44" rx="9"/>
-          <path class="soft" d="M94 95h46M94 106h30"/>
-          <path d="M156 100h22M174 96l5 4-5 4"/>
-          <path class="f" d="M202 76l24 24-24 24-24-24z"/>
-          <path class="soft" d="M194 92l16 16M210 92l-16 16"/>
-          <path d="M202 76V48h44M242 44l5 4-5 4"/>
-          <path d="M202 124v28h44M242 148l5 4-5 4"/>
-          <rect class="f" x="248" y="27" width="78" height="42" rx="9"/>
-          <path class="soft" d="M264 43h46M264 54h28"/>
-          <rect class="f" x="248" y="131" width="78" height="42" rx="9"/>
-          <rect class="soft" x="262" y="138" width="26" height="18" rx="2"/>
-          <path class="soft" d="M262 141l13 8 13-8"/>
-          <path d="M326 48h30v52M326 152h30v-52M356 100h18M370 96l5 4-5 4"/>
-          <circle class="f" cx="390" cy="100" r="13" style="stroke-width:5"/>
-        </svg>
+      <div class="cover collage light" aria-hidden="true">
+        <div><img src="img/ptr-wertschoepfung.webp" width="1090" height="456" alt=""></div>
+        <div><img src="img/ptr-anforderungen.webp" width="1200" height="1090" alt=""></div>
+        <div><img src="img/ptr-materialauswahl.webp" width="1200" height="1090" alt=""></div>
       </div>
       <div class="body">
-        <p class="meta">HTW Berlin · SoSe 2026 · Gruppenprojekt</p>
+        <p class="meta">Modellierung von Anwendungssystemen · SoSe 2026 · Viererteam</p>
         <h3>PackToTheRoots: Prozessautomatisierung mit Camunda und UiPath</h3>
-        <p class="teaser">Auftrags- und Reklamationsprozess eines fiktiven Verpackungsunternehmens, in BPMN modelliert, mit Camunda automatisiert und um einen UiPath-Bot ergänzt.</p>
+        <p class="teaser">Auftrags-, Wertschöpfungs- und Reklamationsprozess eines fiktiven Verpackungsunternehmens, in BPMN modelliert, mit Camunda automatisiert und um einen UiPath-Bot ergänzt.</p>
         <div class="foot">
           <ul class="tags"><li>Camunda 7</li><li>BPMN 2.0</li><li>Node.js</li><li>UiPath</li></ul>
           <span class="more">Details ansehen <span aria-hidden="true">→</span></span>
@@ -322,34 +309,23 @@
 
 <dialog class="detail" id="packtotheroots" aria-labelledby="ptr-title">
   <button class="close" type="button" aria-label="Schließen">×</button>
-  <div class="cover" aria-hidden="true">
-    <svg class="ill" viewBox="0 0 430 200">
-      <circle class="f" cx="40" cy="100" r="13"/>
-      <path d="M53 100h22M71 96l5 4-5 4"/>
-      <rect class="f" x="78" y="78" width="78" height="44" rx="9"/>
-      <path class="soft" d="M94 95h46M94 106h30"/>
-      <path d="M156 100h22M174 96l5 4-5 4"/>
-      <path class="f" d="M202 76l24 24-24 24-24-24z"/>
-      <path class="soft" d="M194 92l16 16M210 92l-16 16"/>
-      <path d="M202 76V48h44M242 44l5 4-5 4"/>
-      <path d="M202 124v28h44M242 148l5 4-5 4"/>
-      <rect class="f" x="248" y="27" width="78" height="42" rx="9"/>
-      <path class="soft" d="M264 43h46M264 54h28"/>
-      <rect class="f" x="248" y="131" width="78" height="42" rx="9"/>
-      <rect class="soft" x="262" y="138" width="26" height="18" rx="2"/>
-      <path class="soft" d="M262 141l13 8 13-8"/>
-      <path d="M326 48h30v52M326 152h30v-52M356 100h18M370 96l5 4-5 4"/>
-      <circle class="f" cx="390" cy="100" r="13" style="stroke-width:5"/>
-    </svg>
-  </div>
   <div class="detail-body">
-    <p class="meta">HTW Berlin · SoSe 2026 · Gruppenprojekt</p>
+    <p class="meta">HTW Berlin · Modul Modellierung von Anwendungssystemen · SoSe 2026 · Team aus 4 Personen</p>
     <h2 id="ptr-title">PackToTheRoots: Prozessautomatisierung mit Camunda und UiPath</h2>
-    <p class="lead">Für das fiktive, nachhaltige Verpackungsunternehmen PackToTheRoots haben wir zwei Geschäftsprozesse in BPMN modelliert, mit der Process Engine Camunda 7 automatisiert und untersucht, welche Schritte zusätzlich ein Software-Roboter (RPA) übernehmen kann.</p>
+    <p class="lead">Für das fiktive, nachhaltige Verpackungsunternehmen PackToTheRoots haben wir mehrere Geschäftsprozesse in BPMN modelliert, mit der Process Engine Camunda 7 automatisiert und untersucht, welche Schritte zusätzlich ein Software-Roboter (RPA) übernehmen kann.</p>
+
+    <div class="gallery">
+      <a class="light" href="img/ptr-auftragsprozess.webp" target="_blank" rel="noopener"><img src="img/ptr-auftragsprozess.webp" width="2400" height="748" loading="lazy" alt="BPMN-Diagramm des Auftragsprozesses von der Terminbuchung bis zur Auftragsbestätigung"></a>
+      <a class="light" href="img/ptr-anforderungen.webp" target="_blank" rel="noopener"><img src="img/ptr-anforderungen.webp" width="1200" height="1090" loading="lazy" alt="Camunda-Formular, in dem Nachhaltigkeits- und Qualitätsanforderungen per Schieberegler gewichtet werden"></a>
+      <a class="light" href="img/ptr-materialauswahl.webp" target="_blank" rel="noopener"><img src="img/ptr-materialauswahl.webp" width="1200" height="1090" loading="lazy" alt="Die drei bestbewerteten Materialien mit Lieferant und Score"></a>
+      <a class="light wide" href="img/ptr-wertschoepfung.webp" target="_blank" rel="noopener"><img src="img/ptr-wertschoepfung.webp" width="1090" height="456" loading="lazy" alt="Ausschnitt aus dem Wertschöpfungsprozess: Prototyp entwickeln, testen, Kosten prüfen und Feedback einholen"></a>
+    </div>
+    <p class="gallery-note">Auftragsprozess in BPMN, Anforderungen im Camunda-Formular, Materialvergleich mit Score, Prototyp-Schleife im Wertschöpfungsprozess. Zum Vergrößern anklicken.</p>
 
     <h4>Worum es geht</h4>
     <ul class="points">
       <li><strong>Auftragsprozess:</strong> Ein Handelskunde bestellt Verpackungen für eine Kampagne, mit festem Budget und FSC-zertifizierten Materialien.</li>
+      <li><strong>Wertschöpfungsprozess:</strong> Vom internen Auftrag über Materialauswahl, Prototyp und Kostenrechnung bis zur Produktionsplanung.</li>
       <li><strong>Reklamationsprozess:</strong> Reklamationen werden mit einer Ticketnummer erfasst und bearbeitet. Benachrichtigungen gehen automatisch per E-Mail raus.</li>
       <li><strong>Robotic Process Automation:</strong> Wiederkehrende Eingaben wie die Transportbuchung soll ein UiPath-Bot statt eines Menschen erledigen.</li>
     </ul>
